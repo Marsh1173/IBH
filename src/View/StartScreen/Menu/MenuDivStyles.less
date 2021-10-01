@@ -1,0 +1,193 @@
+.MenuDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+}
+
+#startButtonDiv {
+    background-color: rgb(255, 226, 147);
+    padding: 0.5rem;
+    border-radius: 5px;
+    transform: translateX(0.2rem) skewX(-5deg);
+
+    -webkit-animation: @glowPulseAnimation;
+    -moz-animation: @glowPulseAnimation;
+    -o-animation: @glowPulseAnimation;
+    animation: @glowPulseAnimation;
+
+    transition: transform 0.1s;
+}
+
+#startButtonDiv:hover {
+    transform: translateX(0.4rem) skewX(-5deg);
+}
+
+@startButtonInsetShadow: inset 0 0 10px rgba(253, 253, 253, 0.25);
+@startButtonInsetShadowHover: inset 0 0 10px rgba(0, 0, 0, 0.062);
+
+@startButtonDivOutsetShadowTop: 0 -10px 20px rgba(253, 253, 253, 0.13);
+@startButtonDivOutsetShadowRight: 10px 0px 20px rgba(253, 253, 253, 0.13);
+@startButtonDivOutsetShadowBottom: 0 10px 20px rgba(253, 253, 253, 0.13);
+@startButtonDivOutsetShadowLeft: -10px 0px 20px rgba(253, 253, 253, 0.13);
+
+#startButton {
+    -moz-box-shadow: @startButtonInsetShadow;
+    -webkit-box-shadow: @startButtonInsetShadow;
+    box-shadow: @startButtonInsetShadow;
+
+    background: linear-gradient(rgb(236, 173, 0), 20%, rgb(255, 187, 0));
+    //background-color: rgb(253, 186, 0);
+    border: 0px;
+    border-radius: 3px;
+    width: 15rem;
+    height: 5rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#startButton:hover {
+    -moz-box-shadow: @startButtonInsetShadowHover;
+    -webkit-box-shadow: @startButtonInsetShadowHover;
+    box-shadow: @startButtonInsetShadowHover;
+    background-color: rgb(236, 173, 0);
+}
+
+#startButton:active:hover {
+    color: rgb(107, 84, 22);
+    background: rgb(255, 203, 59);
+}
+
+.MenuDiv .OptionsDiv {
+    margin-top: 2rem;
+}
+
+@glowPulseAnimation: glowPulse 1.5s ease-in-out infinite;
+
+@-webkit-keyframes glowPulse {
+    0% {
+        -moz-box-shadow: @startButtonDivOutsetShadowTop;
+        -webkit-box-shadow: @startButtonDivOutsetShadowTop;
+        box-shadow: @startButtonDivOutsetShadowTop;
+    }
+
+    25% {
+        -moz-box-shadow: @startButtonDivOutsetShadowRight;
+        -webkit-box-shadow: @startButtonDivOutsetShadowRight;
+        box-shadow: @startButtonDivOutsetShadowRight;
+    }
+
+    50% {
+        -moz-box-shadow: @startButtonDivOutsetShadowBottom;
+        -webkit-box-shadow: @startButtonDivOutsetShadowBottom;
+        box-shadow: @startButtonDivOutsetShadowBottom;
+    }
+
+    75% {
+        -moz-box-shadow: @startButtonDivOutsetShadowLeft;
+        -webkit-box-shadow: @startButtonDivOutsetShadowLeft;
+        box-shadow: @startButtonDivOutsetShadowLeft;
+    }
+
+    100% {
+        -moz-box-shadow: @startButtonDivOutsetShadowTop;
+        -webkit-box-shadow: @startButtonDivOutsetShadowTop;
+        box-shadow: @startButtonDivOutsetShadowTop;
+    }
+}
+
+@-moz-keyframes glowPulse {
+    0% {
+        -moz-box-shadow: @startButtonDivOutsetShadowTop;
+        -webkit-box-shadow: @startButtonDivOutsetShadowTop;
+        box-shadow: @startButtonDivOutsetShadowTop;
+    }
+
+    25% {
+        -moz-box-shadow: @startButtonDivOutsetShadowRight;
+        -webkit-box-shadow: @startButtonDivOutsetShadowRight;
+        box-shadow: @startButtonDivOutsetShadowRight;
+    }
+
+    50% {
+        -moz-box-shadow: @startButtonDivOutsetShadowBottom;
+        -webkit-box-shadow: @startButtonDivOutsetShadowBottom;
+        box-shadow: @startButtonDivOutsetShadowBottom;
+    }
+
+    75% {
+        -moz-box-shadow: @startButtonDivOutsetShadowLeft;
+        -webkit-box-shadow: @startButtonDivOutsetShadowLeft;
+        box-shadow: @startButtonDivOutsetShadowLeft;
+    }
+
+    100% {
+        -moz-box-shadow: @startButtonDivOutsetShadowTop;
+        -webkit-box-shadow: @startButtonDivOutsetShadowTop;
+        box-shadow: @startButtonDivOutsetShadowTop;
+    }
+}
+
+@-o-keyframes glowPulse {
+    0% {
+        -moz-box-shadow: @startButtonDivOutsetShadowTop;
+        -webkit-box-shadow: @startButtonDivOutsetShadowTop;
+        box-shadow: @startButtonDivOutsetShadowTop;
+    }
+
+    25% {
+        -moz-box-shadow: @startButtonDivOutsetShadowRight;
+        -webkit-box-shadow: @startButtonDivOutsetShadowRight;
+        box-shadow: @startButtonDivOutsetShadowRight;
+    }
+
+    50% {
+        -moz-box-shadow: @startButtonDivOutsetShadowBottom;
+        -webkit-box-shadow: @startButtonDivOutsetShadowBottom;
+        box-shadow: @startButtonDivOutsetShadowBottom;
+    }
+
+    75% {
+        -moz-box-shadow: @startButtonDivOutsetShadowLeft;
+        -webkit-box-shadow: @startButtonDivOutsetShadowLeft;
+        box-shadow: @startButtonDivOutsetShadowLeft;
+    }
+
+    100% {
+        -moz-box-shadow: @startButtonDivOutsetShadowTop;
+        -webkit-box-shadow: @startButtonDivOutsetShadowTop;
+        box-shadow: @startButtonDivOutsetShadowTop;
+    }
+}
+
+@keyframes glowPulse {
+    0% {
+        -moz-box-shadow: @startButtonDivOutsetShadowTop;
+        -webkit-box-shadow: @startButtonDivOutsetShadowTop;
+        box-shadow: @startButtonDivOutsetShadowTop;
+    }
+
+    25% {
+        -moz-box-shadow: @startButtonDivOutsetShadowRight;
+        -webkit-box-shadow: @startButtonDivOutsetShadowRight;
+        box-shadow: @startButtonDivOutsetShadowRight;
+    }
+
+    50% {
+        -moz-box-shadow: @startButtonDivOutsetShadowBottom;
+        -webkit-box-shadow: @startButtonDivOutsetShadowBottom;
+        box-shadow: @startButtonDivOutsetShadowBottom;
+    }
+
+    75% {
+        -moz-box-shadow: @startButtonDivOutsetShadowLeft;
+        -webkit-box-shadow: @startButtonDivOutsetShadowLeft;
+        box-shadow: @startButtonDivOutsetShadowLeft;
+    }
+
+    100% {
+        -moz-box-shadow: @startButtonDivOutsetShadowTop;
+        -webkit-box-shadow: @startButtonDivOutsetShadowTop;
+        box-shadow: @startButtonDivOutsetShadowTop;
+    }
+}

@@ -7,7 +7,10 @@
     "devDependencies": {
         "@types/react": "^17.0.3",
         "@types/react-dom": "^17.0.3",
+        "babel-loader": "^8.2.2",
+        "css-loader": "^6.2.0",
         "less": "^4.1.1",
+        "less-loader": "^10.0.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "terser-webpack-plugin": "^5.1.1",
@@ -19,5 +22,11 @@
     },
     "scripts": {
         "dev": "yarn && npx webpack serve"
+    },
+    "dependencies": {
+        "@babel/core": "^7.15.5",
+        "@babel/preset-env": "^7.15.6",
+        "@teamsupercell/typings-for-css-modules-loader": "^2.5.1",
+        "style-loader": "^3.2.1"
     }
 }

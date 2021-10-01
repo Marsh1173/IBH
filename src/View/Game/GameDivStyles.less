@@ -1,0 +1,25 @@
+@import "../StartScreen/StartScreenDivStyles.less";
+
+.GameDiv {
+    width: 100%;
+    height: 100%;
+    background: @startScreenBackgroundColor;
+}
+
+.GameDiv,
+.GameDiv * {
+    cursor: none;
+}
+
+.GameDiv * {
+    -webkit-animation: @fadeInAnimation;
+    -moz-animation: @fadeInAnimation;
+    -o-animation: @fadeInAnimation;
+    animation: @fadeInAnimation;
+}
+
+.gameCanvas {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}

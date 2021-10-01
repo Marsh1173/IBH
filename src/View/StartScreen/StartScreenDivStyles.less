@@ -1,0 +1,102 @@
+@startScreenBackgroundColor: linear-gradient(175deg, rgb(255, 123, 0), 20%, rgb(43, 0, 22));
+//@startScreenBackgroundColor: linear-gradient(175deg, rgb(13, 57, 177), 20%, rgb(25, 207, 50));
+@fadeInAnimation: fadeInFromNone 0.2s ease-out;
+
+.StartScreenDiv {
+    background: @startScreenBackgroundColor;
+}
+
+.StartScreenContainer {
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    -webkit-animation: @fadeInAnimation;
+    -moz-animation: @fadeInAnimation;
+    -o-animation: @fadeInAnimation;
+    animation: @fadeInAnimation;
+}
+
+.MenuDiv {
+    position: absolute;
+}
+
+.CharacterBankDiv {
+    position: absolute;
+    right: 100px;
+}
+
+.OverlayScreenDiv {
+    position: absolute;
+}
+
+@-webkit-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: flex;
+        opacity: 0;
+    }
+
+    100% {
+        display: flex;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: flex;
+        opacity: 0;
+    }
+
+    100% {
+        display: flex;
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: flex;
+        opacity: 0;
+    }
+
+    100% {
+        display: flex;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: flex;
+        opacity: 0;
+    }
+
+    100% {
+        display: flex;
+        opacity: 1;
+    }
+}

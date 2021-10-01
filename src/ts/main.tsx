@@ -1,11 +1,11 @@
 import React, { Component, createElement } from "react";
 import ReactDOM from "react-dom";
+import { StartScreenDiv } from "../View/StartScreen/StartScreenDiv";
+import { OptionsDao } from "../Model/OptionsConfig/OptionsConfig";
+import { ImageAssetManager } from "../DataStorage/ImageAssetManager";
 
-class MainDiv extends Component<{}, {}> {
-    render() {
-        return <p>hi</p>;
-    }
-}
+OptionsDao.initOptionsConfig();
+new ImageAssetManager().load();
 
 const domContainer = document.querySelector("#reactDom");
-ReactDOM.render(createElement(MainDiv), domContainer);
+ReactDOM.render(createElement(StartScreenDiv), domContainer);

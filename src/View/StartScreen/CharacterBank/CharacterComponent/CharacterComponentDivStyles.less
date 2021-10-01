@@ -1,0 +1,45 @@
+.CharacterComponentDiv {
+    background-color: rgb(83, 87, 88);
+    border-radius: 5px;
+    height: @CharacterComponentHeight;
+    width: auto;
+    margin: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.characterIcon {
+    height: 100%;
+    width: @CharacterComponentHeight;
+}
+
+.characterDeleteButton {
+    height: 1rem;
+    width: 1rem;
+    margin: 1rem;
+    background-color: rgb(170, 0, 0);
+    border-radius: 3px;
+    border: 1px solid rgb(82, 0, 0);
+    align-self: flex-end;
+}
+
+.characterDeleteButton:hover {
+    background-color: rgb(70, 0, 0);
+}
+
+.characterInformation {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.characterInformation hr {
+    border: 1px solid rgb(31, 31, 31);
+}
+
+.characterClass {
+}
+
+@CharacterComponentHeight: 5rem;
