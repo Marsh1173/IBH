@@ -9,7 +9,7 @@ export class StartScreenDiv extends Component<{}, {}> {
         return (
             <div className="StartScreenDiv">
                 <div className="StartScreenContainer">
-                    <CharacterBankDiv></CharacterBankDiv>
+                    {/* <CharacterBankDiv></CharacterBankDiv> */}
                     <MenuDiv></MenuDiv>
                 </div>
             </div>

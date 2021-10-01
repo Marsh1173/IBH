@@ -37,6 +37,11 @@ export class WebsiteInfoDiv extends OptionsScreenBase {
                                 Home Website
                             </a>
                         </p>
+                        <p>
+                            <a href="https://github.com/Marsh1173/IBH" target="_blank">
+                                Github
+                            </a>
+                        </p>
                     </li>
                 </ul>
             </div>
