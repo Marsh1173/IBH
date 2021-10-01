@@ -6,7 +6,7 @@ import { Platform } from "../../Terrain/Platform";
 import { findDistance, Vector } from "../../Utils/2D/Vector";
 import { ifPointInside } from "../../Utils/2D/LineIntersection/ifPointInside";
 import { TerrainEdge } from "../../Terrain/TerrainEdge";
-import { LineIntersection, LineIntersectWithShapeReturnData, LineIntersectWithShapesReturnData } from "../../Utils/2D/LineIntersection/Lineintersection";
+import { LineIntersection, LineIntersectWithShapeReturnData, LineIntersectWithShapesReturnData } from "../../Utils/2D/LineIntersection/LineIntersection";
 
 export class TerrainHandler {
     public readonly terrain: TerrainInterface[] = [];

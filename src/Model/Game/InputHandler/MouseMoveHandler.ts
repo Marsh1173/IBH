@@ -5,13 +5,21 @@ import { Square } from "../../Utils/2D/Square";
 
 export class MouseMoveHandler {
     public readonly globalMousePos: Vector = { x: 0, y: 0 };
-    public readonly localMousePos: Vector = { x: 0, y: 0 };
+    public readonly localMousePos: Vector;
+    public readonly screenBounds: Square;
 
-    constructor(private readonly inputHandler: InputHandler, private readonly Game: Game) {}
+    constructor(private readonly inputHandler: InputHandler, private readonly Game: Game) {
+        this.screenBounds = this.Game.renderHandler.screenHandler.getWindowSize();
+        this.localMousePos = { x: (this.screenBounds.width * 2) / 3, y: this.screenBounds.height / 2 };
+    }
 
     public onMouseMove(e: MouseEvent) {
-        this.localMousePos.x = e.clientX;
-        this.localMousePos.y = e.clientY;
+        this.localMousePos.x += e.movementX;
+        this.localMousePos.y += e.movementY;
+        if (this.localMousePos.x < 0) this.localMousePos.x = 0;
+        if (this.localMousePos.y < 0) this.localMousePos.y = 0;
+        if (this.localMousePos.x > this.screenBounds.width) this.localMousePos.x = this.screenBounds.width;
+        if (this.localMousePos.y > this.screenBounds.height) this.localMousePos.y = this.screenBounds.height;
     }
 
     public updateGlobalMousePos() {

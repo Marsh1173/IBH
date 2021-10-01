@@ -3,7 +3,10 @@
 @fadeInAnimation: fadeInFromNone 0.2s ease-out;
 
 .StartScreenDiv {
-    background: @startScreenBackgroundColor;
+    -webkit-animation: @fadeInAnimation;
+    -moz-animation: @fadeInAnimation;
+    -o-animation: @fadeInAnimation;
+    animation: @fadeInAnimation;
 }
 
 .StartScreenContainer {
@@ -13,11 +16,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
-    -webkit-animation: @fadeInAnimation;
-    -moz-animation: @fadeInAnimation;
-    -o-animation: @fadeInAnimation;
-    animation: @fadeInAnimation;
 }
 
 .MenuDiv {

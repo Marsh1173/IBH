@@ -7,6 +7,7 @@ import { InputHandler } from "./InputHandler/InputHandler";
 import { PlayerHandler } from "./PlayerHandler/PlayerHandler";
 import { ParticleHandler } from "./ParticleHandler/ParticleHandler";
 import { TerrainHandler } from "./TerrainHandler/TerrainHandler";
+import { GameViewObserver } from "../../View/Game/GameDiv";
 
 export class Game implements GameInterface {
     public readonly renderHandler: RenderHandler;
@@ -17,7 +18,7 @@ export class Game implements GameInterface {
     public readonly terrainHandler: TerrainHandler;
     public readonly particleHandler: ParticleHandler;
 
-    constructor(canvas: HTMLCanvasElement) {
+    constructor(canvas: HTMLCanvasElement, public readonly gameView: GameViewObserver) {
         this.physicsHandler = new PhysicsHandler(this);
         this.renderHandler = new RenderHandler(this, canvas);
         this.particleHandler = new ParticleHandler(this.renderHandler.ctx);
@@ -42,14 +43,19 @@ export class Game implements GameInterface {
         this.mobHandler.newTargetDummy({ x: 500, y: 500 });
     }
     public stop() {
+        if (!this.going) return;
         this.going = false;
         this.inputHandler.clearInputListeners();
     }
     public pause() {
+        console.log("pausing");
+        if (!this.going) return;
         this.going = false;
         this.inputHandler.clearInputListeners();
     }
     public resume() {
+        console.log("resuming");
+        if (this.going) return;
         this.going = true;
         this.inputHandler.setInputListeners();
         window.requestAnimationFrame((timestamp) => this.loop(timestamp));

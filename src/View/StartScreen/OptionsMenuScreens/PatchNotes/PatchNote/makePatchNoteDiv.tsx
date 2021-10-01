@@ -1,5 +1,5 @@
 import React from "react";
-import { PatchNotesItem } from "../../../../../Model/Utils/PatchNotes/PatchNotesDao";
+import { PatchNotesItem } from "../../../../../DataStorage/PatchNotes/PatchNotesDao";
 
 export function makePatchNoteDiv(item: PatchNotesItem, index: number): JSX.Element {
     const changes: JSX.Element[] = item.changes.map((change) => {

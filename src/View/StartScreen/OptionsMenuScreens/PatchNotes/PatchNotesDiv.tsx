@@ -1,7 +1,7 @@
 import React from "react";
 import { OptionsScreenBase } from "../baseComponent/OptionsMenuScreenBase";
 import "./PatchNotesDivStyles.less";
-import { PatchNotesItem, PatchNotesDao } from "../../../../Model/Utils/PatchNotes/PatchNotesDao";
+import { PatchNotesItem, PatchNotesDao } from "../../../../DataStorage/PatchNotes/PatchNotesDao";
 import { makePatchNoteDiv } from "./PatchNote/makePatchNoteDiv";
 
 export class PatchNotesDiv extends OptionsScreenBase {

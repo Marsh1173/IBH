@@ -22,6 +22,9 @@ export class InputHandler {
         };
 
         window.onmousedown = (e: MouseEvent) => {
+            if (!document.pointerLockElement) {
+                document.documentElement.requestPointerLock();
+            }
             if (this.playerController) {
                 if (e.button === 0) {
                     //left click
@@ -49,7 +52,12 @@ export class InputHandler {
 
         window.onkeydown = (e: KeyboardEvent) => {
             switch (e.code) {
+                case "KeyP":
+                    document.exitPointerLock();
+                    this.Game.gameView.onPauseInput();
+                    break;
                 case "KeyW":
+                case "Space":
                     if (this.playerController) this.playerController.playerInputNextFrame["jump"] = true;
                     break;
                 case "KeyA":
@@ -77,6 +85,15 @@ export class InputHandler {
                     break;
             }
         };
+
+        //Set to "P" instead
+        // document.onpointerlockchange = () => {
+        //     if (!document.pointerLockElement) {
+        //         this.Game.gameView.onPauseInput();
+        //     }
+        // };
+
+        document.documentElement.requestPointerLock();
     }
 
     public clearInputListeners() {
@@ -86,9 +103,13 @@ export class InputHandler {
         window.onmouseup = () => {};
         window.onkeydown = () => {};
         window.onkeyup = () => {};
+
+        document.exitPointerLock();
     }
 
     public setPlayerController(controller: PlayerControllerInterface) {
         this.playerController = controller;
     }
+
+    public pointerLock() {}
 }

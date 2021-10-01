@@ -19,6 +19,8 @@ export class MenuDiv extends Component<{}, {}> {
     }
 
     private startGameButtonPress() {
+        document.documentElement.requestFullscreen();
+
         MenuPresenter.startGame();
     }
 }
