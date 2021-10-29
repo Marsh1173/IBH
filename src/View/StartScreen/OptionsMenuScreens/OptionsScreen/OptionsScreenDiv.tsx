@@ -1,5 +1,5 @@
 import React from "react";
-import { OptionsConfig, OptionsDao } from "../../../../Model/OptionsConfig/OptionsConfig";
+import { OptionsConfig, OptionsDao } from "../../../../DataStorage/OptionsConfig/OptionsConfig";
 import { OptionsScreenBase } from "../baseComponent/OptionsMenuScreenBase";
 import "./OptionsScreenDivStyles.less";
 import { ToggleButton } from "../../../Extras/ToggleButton/ToggleButton";

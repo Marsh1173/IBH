@@ -2,7 +2,7 @@ import { BasicBulletParticle } from "../../Game/ParticleHandler/Particles/BasicB
 
 export class BulletRender {
     public static renderBasicBulletParticle(particle: BasicBulletParticle, ctx: CanvasRenderingContext2D) {
-        ctx.strokeStyle = "#ffffffaa";
+        ctx.strokeStyle = "#ffffff55";
         ctx.lineCap = "round";
         ctx.lineWidth = 3;
 

@@ -1,11 +1,11 @@
 import { Game } from "../../Game/Game";
-import { MobHitResults } from "../../Game/MobHandler/MobHandler";
-import { TerrainHitResults } from "../../Game/TerrainHandler/TerrainHandler";
 import { Angle } from "../../Utils/2D/Angle/Angle";
-import { findDifference, findDistance, Vector } from "../../Utils/2D/Vector";
+import { Vector } from "../../Utils/2D/Vector";
 import { HealthActorInterface } from "../Health/HealthActorInterface";
 import { BulletInfo } from "./BulletInfoInterface";
 import { BulletParticleHandler } from "./BulletParticleHandler";
+import { BulletCollisionWithTerrain, StaticObjHitResults } from "./BulletCollisionWithTerrain";
+import { BulletCollisionWithHitboxes, MobHitResults } from "./BulletCollisionWithHitboxes";
 
 export type BulletType = "normal";
 
@@ -13,7 +13,7 @@ export class Bullet {
     public static shoot(game: Game, info: BulletInfo): ShootReturnInfo {
         let endPoint: Vector = Angle.findVectorFromAngle(info.angle, info.range, info.startPoint);
 
-        let terrainResults: TerrainHitResults = game.terrainHandler.checkLineIntersectWithAllTerrain(info.startPoint, endPoint);
+        let terrainResults: StaticObjHitResults = BulletCollisionWithTerrain.checkBulletIntersectionWithAllTerrain(info.startPoint, endPoint, game);
         if (terrainResults.ifStartsInsideShape) {
             return {
                 damageDealt: 0,
@@ -23,7 +23,7 @@ export class Bullet {
             endPoint = terrainResults.newEndPoint;
         }
 
-        let actorHitInfo: MobHitResults = game.mobHandler.checkLineIntersectWithAllMobs(info.startPoint, endPoint);
+        let actorHitInfo: MobHitResults = BulletCollisionWithHitboxes.checkBulletIntersectWithAllMobs(info.startPoint, endPoint, info.team, game);
 
         endPoint = actorHitInfo.newEndPoint;
         BulletParticleHandler.makeBulletStreakParticle(game, info.startPoint, endPoint);

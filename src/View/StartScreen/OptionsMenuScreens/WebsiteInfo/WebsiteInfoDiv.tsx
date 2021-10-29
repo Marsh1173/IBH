@@ -1,15 +1,17 @@
 import React from "react";
+import { PatchNotesDao } from "../../../../DataStorage/PatchNotes/PatchNotesDao";
 import { OptionsScreenBase } from "../baseComponent/OptionsMenuScreenBase";
 import "./WebsiteInfoDivStyles.less";
 
 export class WebsiteInfoDiv extends OptionsScreenBase {
     protected getScreenDiv(): JSX.Element {
+        let version: string = PatchNotesDao.getLatestPatchInfo().version;
+
         return (
             <div className="WebsiteInfoDiv">
                 <h1>Website Info</h1>
                 <hr />
                 <ul>
-                    <li>Version: 0.0.1</li>
                     <li>
                         Creator:
                         <p>Nate Roylance</p>
@@ -21,7 +23,11 @@ export class WebsiteInfoDiv extends OptionsScreenBase {
                     </li>
                     <li>
                         Made With:
+                        <p>Yarn</p>
+                        <p>Less</p>
                         <p>React</p>
+                        <p>Webpack</p>
+                        <p>Typescript</p>
                         <p>HTML Canvas</p>
                         <p>
                             Jefferson Roylance's{" "}

@@ -1,13 +1,15 @@
 import { Updateable } from "../../Utils/Updateable/Updateable";
-import { Renderable } from "../../Rendering/Renderable";
-import { IfRemove } from "../../Utils/InteratableLinkedList/IteratableLinkedList";
+import { IfRemove } from "../../Utils/Containers/IteratableLinkedList/IteratableLinkedList";
 import { Vector } from "../../Utils/2D/Vector";
-import { MomentumObj } from "../../Physics/PhysicsObjects/MomentumObj";
-import { Gravity } from "../../Physics/NaturalForces/Gravity";
+import { Gravity } from "../../Physics/PhysicsProcessing/NaturalForces/Gravity";
+import { Renderable } from "../../Rendering/Renderable";
+import { getNextActorID } from "../../Utils/Actor/Id";
 
 export abstract class BaseParticle implements Renderable, Updateable, IfRemove {
     private readonly totalLifetime: number;
     ifRemove = false;
+
+    id: number = getNextActorID();
 
     constructor(private remainingLifeTime: number) {
         this.totalLifetime = remainingLifeTime + 0;
@@ -34,6 +36,7 @@ export abstract class PhysicsParticle extends BaseParticle implements PhysicsPar
     }
 }
 
-export interface PhysicsParticle extends MomentumObj {
+export interface PhysicsParticle {
     readonly collideRange?: number;
+    readonly momentum: Vector;
 }

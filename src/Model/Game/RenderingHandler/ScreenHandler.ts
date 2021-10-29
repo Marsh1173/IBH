@@ -29,4 +29,8 @@ export class ScreenHandler {
     public getWindowSize(): Square {
         return this.windowSize;
     }
+
+    public manualResetWindow() {
+        this.changedWindowSize = true;
+    }
 }

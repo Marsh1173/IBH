@@ -1,0 +1,32 @@
+#startButtonDiv {
+    background: linear-gradient(#13136e, #2f127e);
+    padding: 0.1rem;
+    border: 0px;
+    border-radius: 4px;
+
+    -moz-box-shadow: @naturalShadow;
+    -webkit-box-shadow: @naturalShadow;
+    box-shadow: @naturalShadow;
+
+    transition: all 0.2s;
+}
+
+#startButton {
+    border: 0px;
+    border-radius: 4px;
+    width: 15rem;
+    height: 5rem;
+    font-size: 2.3rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(#4e29b4, #13136e);
+}
+
+#startButtonDiv:hover {
+    -moz-box-shadow: @hoverShadow;
+    -webkit-box-shadow: @hoverShadow;
+    box-shadow: @hoverShadow;
+}
+
+@naturalShadow: 0 -3px 10px #4e29b411;
+@hoverShadow: 0 -3px 10px #7f67c299;

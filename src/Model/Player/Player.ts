@@ -1,6 +1,6 @@
 import { Square } from "../Utils/2D/Square";
 import { Vector } from "../Utils/2D/Vector";
-import { getNextActorID } from "../Utils/Actor/Actor";
+import { getNextActorID } from "../Utils/Actor/Id";
 import { PlayerInterface } from "./PlayerInterface";
 import { CONFIG } from "../Utils/gameConfig/GameConfig";
 import { Human } from "../Mobs/Human/Human";
@@ -18,21 +18,27 @@ export class Player extends Human implements PlayerInterface {
 
     update(elapsedTime: number) {
         if (this.isDoingLeftClick) {
-            let pos: Vector = this.Game.mobHandler.dummyPlayer.position;
+            let pos: Vector = this.Game.dummyPlayer.position;
 
-            let angleDeviation: number = Math.random() * 0.1 - 0.05;
-            let angle: number = Angle.addAngles(angleDeviation, Angle.findAngle(pos, this.Game.inputHandler.mouseHandler.globalMousePos));
+            //let angleDeviation: number = Math.random() * 0.1 - 0.05;
+            //let angle: number = Angle.addAngles(angleDeviation, Angle.findAngle(pos, this.Game.inputHandler.mouseHandler.globalMousePos));
+            let angle: number = Angle.findAngle(pos, this.Game.inputHandler.mouseHandler.globalMousePos);
 
             Bullet.shoot(this.Game, {
                 startPoint: pos,
                 angle,
                 range: 1000,
-                damage: Math.ceil(Math.random() * 2),
+                damage: Math.ceil(10),
                 team: "self",
                 originActor: this,
                 type: "normal",
             });
+
+            this.Game.inputHandler.mouseHandler.bumpMouse({ x: Math.random() * 6 - 3, y: -10 });
+
+            this.isDoingLeftClick = false;
         }
+
         super.update(elapsedTime);
     }
 

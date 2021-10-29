@@ -1,4 +1,4 @@
-import { findDistance, Vector } from "../Vector";
+import { Vector } from "../Vector";
 import { Shape } from "../Shape";
 import { ifPointInside } from "./ifPointInside";
 
@@ -10,7 +10,7 @@ export class LineIntersection {
         let returnData: LineIntersectWithShapesReturnData = {
             ifStartsInsideShape: false,
             newEndPoint: endPoint,
-            closestPointDistance: findDistance(startPoint, endPoint),
+            closestPointDistance: Vector.findDistance(startPoint, endPoint),
             hitLineIndex: -1,
             hitShapeIndex: -1,
         };
@@ -66,7 +66,7 @@ export class LineIntersection {
             );
 
             if (edgeCollisionCheck) {
-                let distance: number = findDistance(startPoint, edgeCollisionCheck);
+                let distance: number = Vector.findDistance(startPoint, edgeCollisionCheck);
 
                 if (distance < returnData.closestPointDistance) {
                     returnData.hitLineIndex = i;

@@ -2,7 +2,8 @@ import { PatchNotes } from "./PatchNotes";
 
 export interface PatchNotesItem {
     date: string;
-    title: string;
+    updateType: string;
+    version: string;
     summary: string | undefined;
     changes: string[];
 }

@@ -23,7 +23,10 @@ export class GameDiv extends Component<any, { showPauseScreen: boolean }> implem
         return (
             <div className="GameDiv">
                 <canvas className="gameCanvas" ref={this.canvasRef}></canvas>
-                <p className="menuHint">P: Menu</p>
+                <div className="menuHints">
+                    <p>Menu: P</p>
+                    <p>Reset: O</p>
+                </div>
                 {this.state.showPauseScreen && (
                     <GameMenuDiv
                         onResume={() => {
@@ -32,6 +35,7 @@ export class GameDiv extends Component<any, { showPauseScreen: boolean }> implem
                         }}
                         onEnd={() => {
                             this.game?.stop();
+                            document.exitFullscreen();
                             StartScreenPresenter.returnToStartScreen();
                         }}
                     ></GameMenuDiv>

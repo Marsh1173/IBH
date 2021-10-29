@@ -1,12 +1,13 @@
 import { Renderable } from "../../Rendering/Renderable";
-import { IfRemove, IteratableLinkedList } from "../../Utils/InteratableLinkedList/IteratableLinkedList";
+import { IfRemove, IteratableLinkedList } from "../../Utils/Containers/IteratableLinkedList/IteratableLinkedList";
 import { Updateable } from "../../Utils/Updateable/Updateable";
 import { HealthActorInterface } from "./HealthActorInterface";
-import { BaseObj } from "../../Physics/PhysicsObjects/BaseObj";
+import { BaseObjInterface } from "../../Physics/PhysicsInterfaces/BaseObjInterface";
 import { HEALTH_BAR_DURATION, RenderHealth } from "../../Rendering/NameplateRendering/RenderHealth";
 import { getDamageColor, getHealthColor } from "../TeamLogic";
+import { getNextActorID } from "../../Utils/Actor/Id";
 
-export class HealthHandler implements Updateable, Renderable {
+export class HealthHandler {
     public currentHealth: number;
     public readonly healthColor: string;
     public readonly damageColor: string;
@@ -15,7 +16,7 @@ export class HealthHandler implements Updateable, Renderable {
     public readonly damageParticles: IteratableLinkedList<DamageParticle> = new IteratableLinkedList<DamageParticle>();
 
     constructor(
-        public readonly owner: HealthActorInterface & Updateable & Renderable & BaseObj,
+        public readonly owner: HealthActorInterface & Updateable & Renderable & BaseObjInterface,
         public maxHealth: number,
         public readonly barHeightOffset: number = 120,
     ) {
@@ -54,6 +55,7 @@ export class HealthHandler implements Updateable, Renderable {
 }
 
 export class HealthParticle implements Updateable, Renderable, IfRemove {
+    id: number = getNextActorID();
     constructor(public readonly width: number, public readonly XOffset: number) {}
 
     public ifRemove: boolean = false;

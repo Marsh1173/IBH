@@ -1,16 +1,31 @@
-import { Square } from "../2D/Square";
+import { Shape } from "../2D/Shape";
+import { Vector } from "../2D/Vector";
 
 export const MobConfig_1: MobConfig = {
-    HumanDimensions: { height: 170, width: 80 },
-    HumanCrouchingDimensions: { height: 100, width: 80 },
-    HumanMaxSidewaysSpeed: 500,
-    HumanStandingAccel: 6000,
+    HumanShape: {
+        points: [
+            { x: -40, y: -85 },
+            { x: 40, y: -85 },
+            { x: 40, y: 85 },
+            { x: -40, y: 85 },
+        ],
+    },
+    HumanCrouchingShape: {
+        points: [
+            { x: -40, y: -15 },
+            { x: 40, y: -15 },
+            { x: 40, y: 85 },
+            { x: -40, y: 85 },
+        ],
+    },
+    HumanMaxSidewaysSpeed: 550,
+    HumanStandingAccel: 15000,
     HumanFallingAccel: 1500,
 };
 
 export interface MobConfig {
-    HumanDimensions: Square;
-    HumanCrouchingDimensions: Square;
+    HumanShape: Shape;
+    HumanCrouchingShape: Shape;
     HumanMaxSidewaysSpeed: number;
     HumanStandingAccel: number;
     HumanFallingAccel: number;

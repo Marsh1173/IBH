@@ -2,6 +2,7 @@ import { HealthHandler } from "../../Combat/Health/HealthHandler";
 import { Team } from "../../Combat/TeamLogic";
 import { Shape } from "../../Utils/2D/Shape";
 import { Vector } from "../../Utils/2D/Vector";
+import { getNextActorID } from "../../Utils/Actor/Id";
 import { TargetDummyInterface } from "./TargetDummyInterface";
 
 const TARGET_DUMMY_SHAPE: Vector[] = [
@@ -13,6 +14,8 @@ const TARGET_DUMMY_SHAPE: Vector[] = [
 
 export class TargetDummy implements TargetDummyInterface {
     public readonly points: Vector[];
+    public collisionDist = 0;
+    public id: number = getNextActorID();
 
     lastHitBy = undefined;
     team: Team = "enemy";

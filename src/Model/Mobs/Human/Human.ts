@@ -1,12 +1,14 @@
 import { Vector } from "../../Utils/2D/Vector";
 import { Square } from "../../Utils/2D/Square";
-import { Actor, getNextActorID } from "../../Utils/Actor/Actor";
+import { Actor } from "../../Utils/Actor/Actor";
+import { getNextActorID } from "../../Utils/Actor/Id";
 import { CONFIG } from "../../Utils/gameConfig/GameConfig";
 import { HumanInterface } from "./HumanInterface";
 import { HumanMovementLogic } from "./HumanMovementLogic";
 import { Team } from "../../Combat/TeamLogic";
 import { HealthHandler } from "../../Combat/Health/HealthHandler";
 import { renderHuman } from "../../Rendering/MobRendering/RenderHuman";
+import { Shape, ShapeMethods } from "../../Utils/2D/Shape";
 
 export class Human implements HumanInterface {
     public movingLeft: boolean = false;
@@ -14,7 +16,6 @@ export class Human implements HumanInterface {
     public crouching: boolean = false;
 
     public readonly momentum: Vector = { x: 0, y: 0 };
-    public readonly prevMomentum: Vector = { x: 0, y: 0 };
     public onGround: boolean = false;
 
     public readonly id: number = getNextActorID();
@@ -22,13 +23,13 @@ export class Human implements HumanInterface {
 
     public readonly healthHandler: HealthHandler;
 
-    public readonly dimensions: Square = {
-        width: CONFIG.MobConfig.HumanDimensions.width,
-        height: CONFIG.MobConfig.HumanDimensions.height,
-    };
+    public readonly points: Vector[];
+    public readonly baseShape: Shape = CONFIG.MobConfig.HumanShape;
+    public readonly collisionDist: number = 0;
 
     constructor(public readonly position: Vector, public readonly team: Team) {
         this.healthHandler = new HealthHandler(this, 100);
+        this.points = ShapeMethods.offsetShape(this.baseShape.points, this.position);
     }
 
     public update(elapsedTime: number) {
@@ -44,15 +45,15 @@ export class Human implements HumanInterface {
     public render: (ctx: CanvasRenderingContext2D) => void = renderHuman;
 
     protected accelerateLeft(elapsedTime: number) {
-        HumanMovementLogic.accelerateLeft(this, elapsedTime);
+        HumanMovementLogic.accelerateSideways(this, elapsedTime, true);
     }
 
     protected accelerateRight(elapsedTime: number) {
-        HumanMovementLogic.accelerateRight(this, elapsedTime);
+        HumanMovementLogic.accelerateSideways(this, elapsedTime, false);
     }
 
     public ifGroundFriction() {
-        return !this.movingRight || !this.movingLeft;
+        return this.movingRight == this.movingLeft || Math.abs(this.momentum.x) > CONFIG.MobConfig.HumanMaxSidewaysSpeed;
     }
 
     public die() {

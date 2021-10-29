@@ -1,8 +1,5 @@
-export interface Actor {
-    id: number;
+import { Id } from "./Id";
+
+export interface Actor extends Id {
     processKill?: (actor: Actor) => void;
-}
-let id: number = 0;
-export function getNextActorID(): number {
-    return id++;
 }

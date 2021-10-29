@@ -1,10 +1,8 @@
 import { Updateable } from "../../Utils/Updateable/Updateable";
 import { Renderable } from "../../Rendering/Renderable";
-import { IfRemove, IteratableLinkedList } from "../../Utils/InteratableLinkedList/IteratableLinkedList";
+import { IfRemove, IteratableLinkedList } from "../../Utils/Containers/IteratableLinkedList/IteratableLinkedList";
 import { Square } from "../../Utils/2D/Square";
 import { Vector } from "../../Utils/2D/Vector";
-import { Gravity } from "../../Physics/NaturalForces/Gravity";
-import { MomentumObj } from "../../Physics/PhysicsObjects/MomentumObj";
 import { BasicBulletParticle } from "./Particles/BasicBulletParticle";
 import { SparkParticle } from "./Particles/SparkParticle";
 import { BaseParticle } from "./BaseParticles";

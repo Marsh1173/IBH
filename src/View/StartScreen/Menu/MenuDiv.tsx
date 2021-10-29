@@ -3,6 +3,7 @@ import { Component } from "react";
 import { OptionsDiv } from "../OptionsMenu/OptionsDiv";
 import "./MenuDivStyles.less";
 import { MenuPresenter } from "../../../Presenter/StartScreenPresenter/MenuPresenter";
+import "./StartButtonStyles.less";
 
 export class MenuDiv extends Component<{}, {}> {
     render() {

@@ -9,7 +9,7 @@ export function makePatchNoteDiv(item: PatchNotesItem, index: number): JSX.Eleme
     return (
         <div className={`PatchNoteDiv ${index == 0 ? "newest" : ""}`}>
             <hr />
-            <div className="PatchNoteTitle">{item.title}</div>
+            <div className="PatchNoteTitle">{item.updateType + " " + item.version}</div>
             <div className="PatchNoteDate">{item.date}</div>
             <div className="PatchNoteSummary">"{item.summary}"</div>
             <ul className="PatchNoteChanges">{changes}</ul>

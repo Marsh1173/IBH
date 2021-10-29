@@ -1,4 +1,4 @@
-import { OptionsConfig, OptionsDao } from "../../Model/OptionsConfig/OptionsConfig";
+import { OptionsConfig, OptionsDao } from "../OptionsConfig/OptionsConfig";
 import { LocalStorageHandler } from "./LocalStorageHandler";
 
 const OPTIONS_KEY = "IBHOPTIONS";

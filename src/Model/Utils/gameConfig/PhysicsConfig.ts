@@ -1,7 +1,7 @@
 export const PhysicsConfig_1: PhysicsConfig = {
-    fallingAccel: 2800,
-    groundFriction: 3000,
-    maxStandAngle: Math.PI / 6,
+    fallingAccel: 2400,
+    groundFriction: 9000,
+    maxStandAngle: Math.PI / 8,
 };
 
 export interface PhysicsConfig {
